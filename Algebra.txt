@@ -1,0 +1,56 @@
+
+$$(x+h)^n=\sum_{k=0} ^{n} \begin{pmatrix} n \\ k \end{pmatrix} x^{n-k}h^k$$
+El binomio de Newton es una herramienta que nos permite expresar un binomio a la n de una manera muy bonita, y no te espantes, el coeficiente es una combinatoria dada por la siguiente formula.
+$$\begin{pmatrix} n \\ k \end{pmatrix}=\frac{n!}{k!(n-k)!}$$
+Ahora desarrollemos el binomio que teníamos en nuestro limite
+$$\sum_{k=0} ^{n} \begin{pmatrix} n \\ k \end{pmatrix} x^{n-k}h^k=
+\begin{pmatrix} n \\ 0 \end{pmatrix}x^n+
+\begin{pmatrix} n \\ 1 \end{pmatrix}x^{n-1}h+
+\begin{pmatrix} n \\ 2 \end{pmatrix}x^{n-2}h^2+
+...+
+\begin{pmatrix} n \\ n-2 \end{pmatrix}x^2h^{n-2}+
+\begin{pmatrix} n \\ n-1 \end{pmatrix}x^{n-1}h^2+
+\begin{pmatrix} n \\ n \end{pmatrix}h^n$$
+Y lo colocamos
+$$\frac{d}{dx}x^n=\lim _{h \to 0} \frac{(
+x^n+
+\begin{pmatrix} n \\ 1 \end{pmatrix}x^{n-1}h+
+\begin{pmatrix} n \\ 2 \end{pmatrix}x^{n-2}h^2+
+...+
+\begin{pmatrix} n \\ n-2 \end{pmatrix}x^2h^{n-2}+
+\begin{pmatrix} n \\ n-1 \end{pmatrix}x^{n-1}h^{n-1}+
+\begin{pmatrix} n \\ n \end{pmatrix}h^n)-x^n}{h}$$
+En un principio pareciera que empeoramos la cosa, sin embargo nota algo, $x^n$ se cancela
+$$\frac{d}{dx}x^n=\lim _{h \to 0} \frac{
+\begin{pmatrix} n \\ 1 \end{pmatrix}x^{n-1}h+
+\begin{pmatrix} n \\ 2 \end{pmatrix}x^{n-2}h^2+
+...+
+\begin{pmatrix} n \\ n-2 \end{pmatrix}x^2h^{n-2}+
+\begin{pmatrix} n \\ n-1 \end{pmatrix}x^{n-1}h^{n-1}+
+\begin{pmatrix} n \\ n \end{pmatrix}h^n}{h}$$
+Así que lo eliminamos y podemos proceder a factorizar una $h$ en el numerador.
+$$\frac{d}{dx}x^n=\lim _{h \to 0} \frac{h(
+\begin{pmatrix} n \\ 1 \end{pmatrix}x^{n-1}+
+\begin{pmatrix} n \\ 2 \end{pmatrix}x^{n-2}h+
+...+
+\begin{pmatrix} n \\ n-2 \end{pmatrix}x^2h^{n-3}+
+\begin{pmatrix} n \\ n-1 \end{pmatrix}x^{n-1}h^{n-2}+
+\begin{pmatrix} n \\ n \end{pmatrix}h^{n-1})}{h}$$
+Nota que la podemos cancelar y esto va tomando forma,
+$$\frac{d}{dx}x^n=\lim _{h \to 0} 
+\begin{pmatrix} n \\ 1 \end{pmatrix}x^{n-1}+
+\begin{pmatrix} n \\ 2 \end{pmatrix}x^{n-2}h+
+...+
+\begin{pmatrix} n \\ n-2 \end{pmatrix}x^2h^{n-3}+
+\begin{pmatrix} n \\ n-1 \end{pmatrix}x^{n-1}h^{n-2}+
+\begin{pmatrix} n \\ n \end{pmatrix}h^{n-1}$$
+Si hacemos el limite casi todo se cancela, solo nos queda el primer término de la serie.
+$$\frac{d}{dx}x^n=
+\begin{pmatrix} n \\ 1 \end{pmatrix}x^{n-1}$$
+Recuerda que el coeficiente es la formula de combinatoria, así que desarrollamos
+$$\frac{d}{dx}x^n=\frac{n!}{(n-1)!}x^{n-1}$$
+El factorial es la multiplicación de una cuenta regresiva de números, por ejemplo $5*4*3*2*1$, que puede ser descrito como $5*4!$, así que $n!$ lo podemos reescribir como $n(n-1)!$ para cancelarlo en el denominador 
+$$\frac{d}{dx}x^n=\frac{n(n-1)!}{(n-1)!}x^{n-1}$$
+Cancelamos y llegamos a la famosa formula.
+$$\frac{d}{dx}x^n=nx^{n-1}$$
+Vamos con el siguiente.
